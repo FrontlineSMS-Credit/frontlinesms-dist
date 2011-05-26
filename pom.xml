@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.frontlinesms.core</groupId>
-	<artifactId>frontlinesms-dist</artifactId>
-	<name>FrontlineSMS Desktop build</name>
-	<description>This project allows packaging of separate modules of FrontlineSMS for distribution as a desktop application.</description>
+	<groupId>net.frontlinesms.credit</groupId>
+	<artifactId>frontlinesms-credit-dist</artifactId>
+	<name>FrontlineSMS Credit</name>
+	<description>This project allows packaging of the FrontlineSMS:Credit application.</description>
 	<version>1.7.00-beta-6-SNAPSHOT</version>
 	<parent>
 		<groupId>net.frontlinesms.core</groupId>
@@ -23,6 +23,10 @@
 			<url>http://dev.frontlinesms.com/m2repo</url>
 		</repository>
 	</repositories>
+
+	<properties>
+		<build.name>FrontlineSMS Credit</build.name>
+	</properties>
 
 	<build>
 		<plugins>
@@ -58,9 +62,9 @@
 				<artifactId>osxappbundle-maven-plugin</artifactId>
 				<version>1.0</version>
 				<configuration>
-					<bundleName>FrontlineSMS ${version}</bundleName>
+					<bundleName>${build.name} ${version}</bundleName>
 					<mainClass>net.frontlinesms.DesktopLauncher</mainClass>
-					<iconFile>${basedir}/src/assemble/osx-resources/FrontlineSMS.icns</iconFile>
+					<iconFile>${basedir}/src/assemble/osx-resources/FrontlineSMS_Credit.icns</iconFile>
 					<jvmVersion>1.5+</jvmVersion>
 					<javaApplicationStub>${basedir}/src/assemble/osx-resources/JavaApplicationStub</javaApplicationStub>
 					<workingDirectory>$JAVAROOT/lib</workingDirectory>
@@ -101,10 +105,10 @@
 				<artifactId>jetpackager-maven-plugin</artifactId>
 				<version>0.0.2</version>
 				<configuration>
-					<splashImage>src/assemble/resources/FrontlineSMS_Splash_Logo.jpg</splashImage>
-					<programIcon>src/assemble/resources/FrontlineSMS.ico</programIcon>
+					<splashImage>src/assemble/resources/FrontlineSMS_Credit_Splash_Logo.jpg</splashImage>
+					<programIcon>src/assemble/resources/FrontlineSMS_Credit.ico</programIcon>
 					<javaMainClass>net.frontlinesms.DesktopLauncher</javaMainClass>
-					<programExecutableName>FrontlineSMS</programExecutableName>
+					<programExecutableName>${build.name}</programExecutableName>
 					<programVendor>kiwanja.net</programVendor>
 					<packageContents>
 						<fileSet>
@@ -125,8 +129,8 @@
 							</excludes>
 						</fileSet>
 					</packageContents>
-					<programFilesHome>kiwanja.net/FrontlineSMS_${version}</programFilesHome>
-					<startMenuProgramFolderRoot>FrontlineSMS</startMenuProgramFolderRoot>
+					<programFilesHome>kiwanja.net/${build.name}_${version}</programFilesHome>
+					<startMenuProgramFolderRoot>${build.name}</startMenuProgramFolderRoot>
 					<compressionLevel>2</compressionLevel>
 					<!--<doCompile>false</doCompile>-->
 					<!--<doPack>false</doPack>-->
