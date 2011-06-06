@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>net.frontlinesms.core</groupId>
 		<artifactId>frontlinesms-pom-parent</artifactId>
-		<version>1.7.00-beta-5</version>
+		<version>1.7.00-beta-6-SNAPSHOT</version>
 		<relativePath>../pom-parent</relativePath>
 	</parent>
 
@@ -151,6 +151,11 @@
 		<dependency>
 			<groupId>net.frontlinesms.core</groupId>
 			<artifactId>frontlinesms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.frontlinesms.plugins.credit</groupId>
+			<artifactId>frontlinesms-plugin-credit</artifactId>
+			<version>0.01.2-SNAPSHOT</version>
 		</dependency>
 
 		<!-- FrontlineSMS Plugins -->
