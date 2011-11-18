@@ -152,8 +152,8 @@
 			<artifactId>frontlinesms</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>net.frontlinesms.plugins.credit</groupId>
-			<artifactId>frontlinesms-plugin-credit</artifactId>
+			<groupId>net.frontlinesms.plugins</groupId>
+			<artifactId>frontlinesms-plugin-payment</artifactId>
 			<version>0.2.0-SNAPSHOT</version>
 		</dependency>
 
@@ -171,7 +171,7 @@
 		<dependency>
 			<groupId>net.frontlinesms.plugins</groupId>
 			<artifactId>frontlinesms-plugin-httptrigger</artifactId>
-			<version>0.01.25</version>
+			<version>0.01.26-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frontlinesms.plugins</groupId>
@@ -198,8 +198,13 @@
 		
 		<!-- Payment Services -->
 		<dependency>
-			<groupId>net.frontlinesms.plugins.credit.payment</groupId>
+			<groupId>net.frontlinesms.plugins.payment</groupId>
 			<artifactId>safaricom-kenya</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>net.frontlinesms.plugins.payment</groupId>
+			<artifactId>dummycash</artifactId>
 			<version>0.1.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
