@@ -23,6 +23,14 @@
 		</repository>
 	</repositories>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>googlecode-maven-install4j</id>
+			<name>googlecode-maven-install4j</name>
+			<url>http://maven-install4j.googlecode.com/svn/m2-repo</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<properties>
 		<build.name>FrontlineSMS Credit</build.name>
 	</properties>
@@ -33,15 +41,8 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<descriptors>
-						<descriptor>src/assemble/distribution.xml</descriptor>
-						
-						<!-- Windows build for JET compilation -->
-						<descriptor>src/assemble/windows-jet.xml</descriptor>
-						
-						<!-- Linux builds -->
-						<descriptor>src/assemble/linux_i686-dist.xml</descriptor>
-						<descriptor>src/assemble/linux_ia64-dist.xml</descriptor>
-						<descriptor>src/assemble/linux_x86_64-dist.xml</descriptor>
+						<!-- Windows build for install4j -->
+						<descriptor>src/assemble/windows-install4j.xml</descriptor>
 					</descriptors>
 				</configuration>
 				<executions>
@@ -54,95 +55,32 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<!-- THIS PLUGIN IS PLATFORM-DEPENDENT 
-					This will create the FrontlineSMS.app bundle regardless of the platform used.
-					This will ONLY create the Mac distributable disk image (.dmg file) when run on OS X. -->
-				<groupId>net.frontlinesms.build</groupId>
-				<artifactId>osxappbundle-maven-plugin</artifactId>
-				<version>1.0</version>
-				<configuration>
-					<bundleName>${build.name} ${version}</bundleName>
-					<mainClass>net.frontlinesms.DesktopLauncher</mainClass>
-					<iconFile>${basedir}/src/assemble/osx-resources/FrontlineSMS_Credit.icns</iconFile>
-					<jvmVersion>1.5+</jvmVersion>
-					<javaApplicationStub>${basedir}/src/assemble/osx-resources/JavaApplicationStub</javaApplicationStub>
-					<workingDirectory>$JAVAROOT/lib</workingDirectory>
-					<additionalResources>
-						<fileSet>
-							<directory>${basedir}/src/assemble/resources/package</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-						</fileSet>
-					</additionalResources>
-					<additionalBundledClasspathResources>
-						<fileSet>
-							<directory>${basedir}/src/assemble/osx-resources</directory>
-							<includes>
-								<include>*.jnilib</include>
-							</includes>
-						</fileSet>
-						<fileSet>
-							<directory>${basedir}/src/assemble/resources/lib</directory>
-						</fileSet>
-					</additionalBundledClasspathResources>
-				</configuration>
-				<!--<executions>
+				<groupId>com.google.code.maven-install4j</groupId>
+				<artifactId>maven-install4j-plugin</artifactId>
+				<version>0.1.1</version>
+				<executions>
 					<execution>
 						<phase>package</phase>
 						<goals>
-							<goal>bundle</goal>
+							<goal>compile</goal>
 						</goals>
 					</execution>
 				</executions>
-			--></plugin>
-			<plugin>
-				<!-- THIS PLUGIN IS PLATFORM-DEPENDENT
-					This will create the FrontlineSMS Windows install package, but will only work
-					if the OS is Windows and Excelsior Jet compiler and packager are installed -->
-				<groupId>net.frontlinesms.build</groupId>
-				<artifactId>jetpackager-maven-plugin</artifactId>
-				<version>0.0.2</version>
 				<configuration>
-					<splashImage>src/assemble/resources/FrontlineSMS_Credit_Splash_Logo.jpg</splashImage>
-					<programIcon>src/assemble/resources/FrontlineSMS_Credit.ico</programIcon>
-					<javaMainClass>net.frontlinesms.DesktopLauncher</javaMainClass>
-					<programExecutableName>${build.name}</programExecutableName>
-					<programVendor>kiwanja.net</programVendor>
-					<packageContents>
-						<fileSet>
-							<!-- Include the help directory + all contents and subdirs -->
-							<directory>src/assemble/resources/package/</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-						</fileSet>
-						<fileSet>
-							<!-- Include JNI Libraries for Windows -->
-							<directory>lib/windows</directory>
-							<includes>
-								<include>*.dll</include>
-							</includes>
-							<excludes>
-								<exclude>rxtx*.dll</exclude>
-							</excludes>
-						</fileSet>
-					</packageContents>
-					<programFilesHome>kiwanja.net/${build.name}_${version}</programFilesHome>
-					<startMenuProgramFolderRoot>${build.name}</startMenuProgramFolderRoot>
-					<compressionLevel>2</compressionLevel>
-					<!--<doCompile>false</doCompile>-->
-					<!--<doPack>false</doPack>-->
+					<executable>${devenv.install4jc}</executable>
+					<configFile>${basedir}/src/assemble/windows.install4j</configFile>
+					<releaseId>${project.version}</releaseId>
+					<attach>true</attach>
+					<skipOnMissingExecutable>true</skipOnMissingExecutable>
+					<compilerVariables>
+						<property>
+							<name>assembly.dir</name>
+							<value>../../target/${project.artifactId}-${project.version}-windows-install4j</value>
+						</property>
+					</compilerVariables>
+					<verbose>true</verbose>
 				</configuration>
-				<!--<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>jetbuild</goal>
-						</goals>
-					</execution>
-				</executions>
-			--></plugin>
+			</plugin>
 		</plugins>
 	</build>
 
