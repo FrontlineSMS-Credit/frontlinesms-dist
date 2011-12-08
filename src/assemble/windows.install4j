@@ -38,7 +38,7 @@
       </splashScreen>
       <java mainClass="net.frontlinesms.DesktopLauncher" vmParameters="" arguments="" allowVMPassthroughParameters="true" preferredVM="" bundleRuntime="true">
         <classPath>
-          <directory location="./cp" failOnError="false" />
+          <scanDirectory location="cp" failOnError="true" />
         </classPath>
         <nativeLibraryDirectories>
           <directory name="." />
