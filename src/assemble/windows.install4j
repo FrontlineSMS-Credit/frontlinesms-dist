@@ -41,7 +41,7 @@
           <scanDirectory location="cp" failOnError="true" />
         </classPath>
         <nativeLibraryDirectories>
-          <directory name="." />
+          <directory name="jni" />
         </nativeLibraryDirectories>
       </java>
       <includedFiles />

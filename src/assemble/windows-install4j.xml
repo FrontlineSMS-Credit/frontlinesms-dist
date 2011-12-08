@@ -26,7 +26,7 @@
 		<fileSet>
 			<!-- Include JNI Libraries for Windows -->
 			<directory>lib/windows</directory>
-			<outputDirectory></outputDirectory>
+			<outputDirectory>jni</outputDirectory>
 			<includes>
 				<include>*.dll</include>
 			</includes>
