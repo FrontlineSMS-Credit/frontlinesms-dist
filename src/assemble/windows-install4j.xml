@@ -34,5 +34,13 @@
 				<exclude>rxtx*.dll</exclude>
 			</excludes>
 		</fileSet>
+
+		<fileSet>
+			<directory>lib/windows</directory>
+			<outputDirectory>.</outputDirectory>
+			<includes>
+				<include>javax.comm.properties</include>
+			</includes>
+		</fileSet>
 	</fileSets>
 </assembly>
