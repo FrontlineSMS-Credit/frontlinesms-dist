@@ -11,3 +11,6 @@ bin/
 
 # Temporary working directory
 temp/
+
+# JNI libraries required when running from project directory
+librxtxSerial.jnilib
