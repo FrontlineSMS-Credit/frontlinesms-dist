@@ -14,3 +14,6 @@ temp/
 
 # JNI libraries required when running from project directory
 librxtxSerial.jnilib
+
+# OSX system files
+.DS_Store
