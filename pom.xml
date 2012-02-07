@@ -19,6 +19,8 @@
 	<properties>
 		<github.projectOwner>FrontlineSMS-Credit</github.projectOwner>
 		<github.projectName>frontlinesms-dist</github.projectName>
+
+		<build.name>FrontlineSMS Credit</build.name>
 	</properties>
 
 	<repositories>
@@ -36,10 +38,6 @@
 			<url>http://maven-install4j.googlecode.com/svn/m2-repo</url>
 		</pluginRepository>
 	</pluginRepositories>
-
-	<properties>
-		<build.name>FrontlineSMS Credit</build.name>
-	</properties>
 
 	<build>
 		<plugins>
