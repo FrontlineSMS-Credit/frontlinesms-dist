@@ -36,8 +36,4 @@ public class CreditPreferencesConfigurationPage extends FirstTimeWizardPage {
 		
 		ui.gotoNextPage();
 	}
-	
-	public void back() {
-		ui.goBack();
-	}
 }
