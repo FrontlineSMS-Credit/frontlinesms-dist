@@ -348,7 +348,7 @@
     </applications>
   </installerGui>
   <mediaSets>
-    <windows name="Windows" id="24" customizedId="" mediaFileName="" installDir="FrontlineSMS Credit" overridePrincipalLanguage="false" jreBitType="32" runPostProcessor="false" postProcessor="" failOnPostProcessorError="false" useLegacyMediaFileIds="false" legacyMediaFileIds="" includedJRE="windows-x86-1.6.0_29" manualJREEntry="false" bundleType="1" jreURL="" jreFtpURL="" jreShared="false" directDownload="false" installOnlyIfNecessary="false" customInstallBaseDir="" contentFilesType="1" downloadURL="" verifyIntegrity="true">
+    <windows name="Windows" id="24" customizedId="" mediaFileName="" installDir="FrontlineSMS Credit" overridePrincipalLanguage="false" jreBitType="32" runPostProcessor="false" postProcessor="" failOnPostProcessorError="false" useLegacyMediaFileIds="false" legacyMediaFileIds="" includedJRE="windows-x86-1.6.0_45" manualJREEntry="false" bundleType="1" jreURL="" jreFtpURL="" jreShared="false" directDownload="false" installOnlyIfNecessary="false" customInstallBaseDir="" contentFilesType="1" downloadURL="" verifyIntegrity="true">
       <excludedLaunchers />
       <excludedBeans />
       <overriddenPrincipalLanguage id="en" customLocalizationFile="" />
